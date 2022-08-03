@@ -14,8 +14,12 @@ app.use(cors({
 // setting up router
 const top250Movies_Router = require('./routes/top250Movies_Router');
 const top250Series_Router = require('./routes/top250Series_Router');
+const inTheatres_Router = require('./routes/inTheatres_Router');
+const youtubeTrailer_Router = require('./routes/youtubeTrailer_Router');
 app.use("/api/top250movies", top250Movies_Router)
 app.use("/api/top250series", top250Series_Router)
+app.use("/api/inTheatres", inTheatres_Router)
+app.use("/api/trailer", youtubeTrailer_Router)
 
 app.get("/", (req, res) => {
     res.send("hello world");

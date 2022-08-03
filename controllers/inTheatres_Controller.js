@@ -1,6 +1,6 @@
 const axios = require('axios');
-var url = `${process.env.IMDB_TOP_250_MOVIES_BASE_URL}${process.env.IMDB_API_KEY3}`;
-const getAllTop250Movies = (req, res) => {
+var url = `${process.env.IMDB_IN_THEATRES_BASE_URL}${process.env.IMDB_API_KEY3}`;
+const getAllTop250inTheatres = (req, res) => {
     axios.get(url)
         .then(response => {
             res.status(200)
@@ -10,7 +10,7 @@ const getAllTop250Movies = (req, res) => {
             console.log(err);
         })
 }
-const getFirstXTopMovies = (req, res) => {
+const getFirstXTopinTheatres = (req, res) => {
     const limit = parseInt(req.params.limit)
     axios.get(url)
         .then(response => {
@@ -21,7 +21,7 @@ const getFirstXTopMovies = (req, res) => {
             console.log(err);
         })
 }
-const getMovieInRange = (req, res) => {
+const getinTheatresInRange = (req, res) => {
     const start = parseInt(req.params.start)
     const end = parseInt(req.params.end)
     axios.get(url)
@@ -33,4 +33,4 @@ const getMovieInRange = (req, res) => {
             console.log(err);
         })
 }
-module.exports = { getAllTop250Movies, getFirstXTopMovies, getMovieInRange }
+module.exports = { getAllTop250inTheatres, getFirstXTopinTheatres, getinTheatresInRange }
