@@ -1,10 +1,21 @@
 const axios = require('axios');
-var url = `${process.env.IMDB_TOP_250_SERIES_BASE_URL}${process.env.IMDB_API_KEY3}`;
+const keys = require("../API_KEYS")
+var index = 0;
+var url = `${process.env.IMDB_TOP_250_SERIES_BASE_URL}${keys[index]}`;
 const getAllTop250Series = (req, res) => {
     axios.get(url)
         .then(response => {
-            res.status(200)
-            res.send(response.data.items)
+            if (response.data.items.length == 0) {
+                console.log("No data found", index, url);
+                index = (index + 1) % keys.length;
+                url = `${process.env.IMDB_TOP_250_SERIES_BASE_URL}${keys[index]}`;
+                getAllTop250Series(req, res);
+            }
+            else {
+                res.status(200)
+                res.send(response.data.items)
+                return
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -14,8 +25,17 @@ const getFirstXTopSeries = (req, res) => {
     const limit = parseInt(req.params.limit)
     axios.get(url)
         .then(response => {
-            res.status(200)
-            res.send(response.data.items.slice(0, limit))
+            if (response.data.items.length == 0) {
+                console.log("No data found", index, url);
+                index = (index + 1) % keys.length;
+                url = `${process.env.IMDB_TOP_250_SERIES_BASE_URL}${keys[index]}`;
+                getFirstXTopSeries(req, res);
+            }
+            else {
+                res.status(200)
+                res.send(response.data.items.slice(0, limit))
+                return
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -26,8 +46,17 @@ const getSeriesInRange = (req, res) => {
     const end = parseInt(req.params.end)
     axios.get(url)
         .then(response => {
-            res.status(200)
-            res.send(response.data.items.slice(start, end))
+            if (response.data.items.length == 0) {
+                console.log("No data found", index, url);
+                index = (index + 1) % keys.length;
+                url = `${process.env.IMDB_TOP_250_SERIES_BASE_URL}${keys[index]}`;
+                getSeriesInRange(req, res);
+            }
+            else {
+                res.status(200)
+                res.send(response.data.items.slice(start, end))
+                return
+            }
         })
         .catch((err) => {
             console.log(err);
