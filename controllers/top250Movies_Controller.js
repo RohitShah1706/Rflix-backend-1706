@@ -6,7 +6,7 @@ const getAllTop250Movies = (req, res) => {
     axios.get(url)
         .then(response => {
             if (response.data.items.length == 0) {
-                console.log("No data found", index, url);
+                // console.log("No data found", index, url);
                 index = (index + 1) % keys.length;
                 url = `${process.env.IMDB_TOP_250_MOVIES_BASE_URL}${keys[index]}`;
                 getAllTop250Movies(req, res);
@@ -26,7 +26,7 @@ const getFirstXTopMovies = (req, res) => {
     axios.get(url)
         .then(response => {
             if (response.data.items.length == 0) {
-                console.log("No data found", index, url);
+                // console.log("No data found", index, url);
                 index = (index + 1) % keys.length;
                 url = `${process.env.IMDB_TOP_250_MOVIES_BASE_URL}${keys[index]}`;
                 getFirstXTopMovies(req, res);
@@ -47,7 +47,7 @@ const getMovieInRange = (req, res) => {
     axios.get(url)
         .then(response => {
             if (response.data.items.length == 0) {
-                console.log("No data found", index, url);
+                // console.log("No data found", index, url);
                 index = (index + 1) % keys.length;
                 url = `${process.env.IMDB_TOP_250_MOVIES_BASE_URL}${keys[index]}`;
                 getMovieInRange(req, res);

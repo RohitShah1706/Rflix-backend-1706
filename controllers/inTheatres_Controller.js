@@ -6,7 +6,7 @@ const getAllTop250inTheatres = (req, res) => {
     axios.get(url)
         .then(response => {
             if (response.data.items.length == 0) {
-                console.log("No data found", index, url);
+                // console.log("No data found", index, url);
                 index = (index + 1) % keys.length;
                 url = `${process.env.IMDB_IN_THEATRES_BASE_URL}${keys[index]}`;
                 getAllTop250inTheatres(req, res);
@@ -26,7 +26,7 @@ const getFirstXTopinTheatres = (req, res) => {
     axios.get(url)
         .then(response => {
             if (response.data.items.length == 0) {
-                console.log("No data found", index, url);
+                // console.log("No data found", index, url);
                 index = (index + 1) % keys.length;
                 url = `${process.env.IMDB_IN_THEATRES_BASE_URL}${keys[index]}`;
                 getFirstXTopinTheatres(req, res);
@@ -47,7 +47,7 @@ const getinTheatresInRange = (req, res) => {
     axios.get(url)
         .then(response => {
             if (response.data.items.length == 0) {
-                console.log("No data found", index, url);
+                // console.log("No data found", index, url);
                 index = (index + 1) % keys.length;
                 url = `${process.env.IMDB_IN_THEATRES_BASE_URL}${keys[index]}`;
                 getinTheatresInRange(req, res);

@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const { getYoutubeTrailer } = require('../controllers/youtubeTrailer_Controller');
+const { getYoutubeTrailerMovie, getYoutubeTrailerSeries } = require('../controllers/youtubeTrailer_Controller');
 
-router.route("/:id")
-    .get(getYoutubeTrailer)
+router.route("/movie/:id")
+    .get(getYoutubeTrailerMovie);
+router.route("/series/:name")
+    .get(getYoutubeTrailerSeries);
+
 module.exports = router;
