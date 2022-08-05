@@ -12,7 +12,7 @@ const getYoutubeTrailerMovie = (req, res) => {
                 // console.log("No data found", index, movieUrl);
                 index = (index + 1) % keys.length;
                 movieUrl = `${process.env.IMDB_GET_YOUTUBE_TRAILER_BASE_URL}${keys[index]}/${id}`;
-                getYoutubeTrailer(req, res);
+                getYoutubeTrailerMovie(req, res);
             }
             else {
                 const embedlink = `https://www.youtube.com/embed/${response.data.videoId}`
@@ -37,7 +37,7 @@ const sendYoutubeTrailerForSeries = (req, res) => {
                 // console.log("No data found", index, movieUrl);
                 index = (index + 1) % keys.length;
                 seriesURL = `${process.env.IMDB_GET_YOUTUBE_TRAILER_BASE_URL}${keys[index]}/${universalIdForSeries}`;
-                getYoutubeTrailer(req, res);
+                sendYoutubeTrailerForSeries(req, res);
             }
             else {
                 const embedlink = `https://www.youtube.com/embed/${response.data.videoId}`
@@ -69,10 +69,10 @@ const getYoutubeTrailerSeries = (req, res) => {
             }
             else {
                 universalIdForSeries = response.data.results[0].id;
-                console.log(universalIdForSeries);
+                // console.log(universalIdForSeries);
                 sendYoutubeTrailerForSeries(response.data.results[0].id)
                     .then(result => {
-                        console.log("this is to send2", result);
+                        // console.log("this is to send2", result);
                         res.send(result)
                     })
                     .catch(err => {

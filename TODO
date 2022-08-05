@@ -3,9 +3,18 @@ DONE ===>
 2) MAKE GET REQUEST TO THE REQUIRED API SERVICE PROVIDERS - LIKE IMDB API OR TMDB API ETC
 3) MANIPULATE RESPONSE FROM THESE API TO GET THE REQUIRED DATA - like fetch all - fetch first x - fetch in a given range - ALL THESE ARE DONE BY IDENTIFYING THE PARAMS IN THE URL 
 4) AT MAX CAN MAKE 100 REQUESTS TO IMDB API PER DAY - SO MAKE REQUESTS USING MULTIPLE ACCOUNTS OR THREADS. Used accounts - see in dotenv file with their passwords - cycled through these API keys - see any one of the controller files
+5) INTEGRATE IN THEATRES API WITH FRONTEND
+6) INTEGRATE YOUTUBE TRAILER api WITH FRONTEND TO RENDER YOUTUBE TRAILER
 
+ISSUES ===>
+1) ECONNRESET = The TMDB api - I guess is banned in India - so the backend sends a first request to the API and then the connection is closed off.
+We need to restart the server and make a whole new fresh request to the API. Could not find any solution to this unless using a VPN which might not be possible
+once I host the backend on heroku. So tried sending request to the IMDB api from frontend and suprisingly it worked. Still not sure how but it does. So the 
+whole content of featured section (THE CAROUSEL ON THE HOMEPAGE) is fetched from the frontend side.
+2) CORS error - Got to know what this infamous error is about - Every browser blocks this by default as part of its security model. It
+can be allowed if the client(frontend side) request Origin header matches the server(backend side) response Access-Control-Allow-Origin header.
+For now I am allowing all origins to access the backend so the cors orginis header is set to "*" in the backend.
+Check server.js file for the cors origin header.
 
-PENDING
-2) INTEGRATE IN THEATRES API WITH FRONTEND
-3) INTEGRATE YOUTUBE TRAILER api WITH FRONTEND TO RENDER YOUTUBE TRAILER
-4) MAKE SEARCH FUNCTIONALITY 
+PENDING ===>
+1) MAKE SEARCH FUNCTIONALITY git
