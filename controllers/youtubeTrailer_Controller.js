@@ -46,7 +46,7 @@ const sendYoutubeTrailerForSeries = (req, res) => {
                     embedlink: embedlink,
                     data: response.data
                 }
-                console.log("this is to send1", toSend);
+                // console.log("this is to send1", toSend);
                 return toSend
             }
         })

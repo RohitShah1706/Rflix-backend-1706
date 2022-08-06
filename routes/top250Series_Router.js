@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 // import controller
-const { getAllTop250Series, getFirstXTopSeries, getSeriesInRange } = require('../controllers/top250Series_Controller');
+const { getTopSeries } = require('../controllers/top250Series_Controller');
 
 // Get all Series 
 router.route("/")
-    .get(getAllTop250Series)
+    .get(getTopSeries)
 router.route("/:start&:end")
-    .get(getSeriesInRange);
-router.route("/:limit")
-    .get(getFirstXTopSeries);
+    .get(getTopSeries);
+router.route("/:end")
+    .get(getTopSeries);
 
 module.exports = router;
