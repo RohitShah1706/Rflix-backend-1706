@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 
+// Middleware setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({
@@ -11,7 +12,7 @@ app.use(cors({
     credentials: true
 }));
 
-// setting up router
+// setting up router and routes
 const top250Movies_Router = require('./routes/top250Movies_Router');
 const top250Series_Router = require('./routes/top250Series_Router');
 const inTheatres_Router = require('./routes/inTheatres_Router');

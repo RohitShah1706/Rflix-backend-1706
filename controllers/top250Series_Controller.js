@@ -1,16 +1,15 @@
 const axios = require('axios');
 const keys = require("../API_KEYS")
 var index = 0;
-var url = `${process.env.IMDB_TOP_250_SERIES_BASE_URL}${keys[index]}`;
+var url = `https://imdb-api.com/en/API/Top250TVs/${keys[index]}`;
 const getTopSeries = (req, res) => {
     const start = parseInt(req.params.start) || 0;
     const end = parseInt(req.params.end) || 250;
     axios.get(url)
         .then(response => {
             if (response.data.items.length == 0) {
-                // console.log("No data found", index, url);
                 index = (index + 1) % keys.length;
-                url = `${process.env.IMDB_TOP_250_SERIES_BASE_URL}${keys[index]}`;
+                url = `https://imdb-api.com/en/API/Top250TVs/${keys[index]}`;
                 getTopSeries(req, res);
             }
             else {
@@ -23,4 +22,4 @@ const getTopSeries = (req, res) => {
             console.log(err);
         })
 }
-module.exports = { getTopSeries}
+module.exports = { getTopSeries }
