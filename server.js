@@ -8,7 +8,7 @@ require('dotenv').config();
 const cors = require('cors');
 app.use(cors({
     origin: '*',
-    credentials: true
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 }));
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
