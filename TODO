@@ -5,6 +5,8 @@ DONE ===>
 4) AT MAX CAN MAKE 100 REQUESTS TO IMDB API PER DAY - SO MAKE REQUESTS USING MULTIPLE ACCOUNTS OR THREADS. Used accounts - see in dotenv file with their passwords - cycled through these API keys - see any one of the controller files
 5) INTEGRATE IN THEATRES API WITH FRONTEND
 6) INTEGRATE YOUTUBE TRAILER api WITH FRONTEND TO RENDER YOUTUBE TRAILER
+7) MAKE SEARCH FUNCTIONALITY git
+8) MAKE API FOR GENRES
 
 ISSUES ===>
 1) ECONNRESET = The TMDB api - I guess is banned in India - so the backend sends a first request to the API and then the connection is closed off.
@@ -17,5 +19,7 @@ For now I am allowing all origins to access the backend so the cors orginis head
 Check server.js file for the cors origin header.
 
 PENDING ===>
-1) MAKE SEARCH FUNCTIONALITY git
-2) MAKE API FOR GENRES
+IMPLEMENT MODEL FOR USERS FAVOURITE MOVIES & SERIES - WHEN USER LOGS IN THE FRONTEND SEND REQUEST TO EITHER FIND OR CREATE USER
+BUILD AND INTEGRATE ADMIN DASHBOARD ON FRONTEND WITH BACKEND 
+
+
