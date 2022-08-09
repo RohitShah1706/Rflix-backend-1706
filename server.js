@@ -1,18 +1,23 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const { connectDB } = require('./db/connectDB');
 require('dotenv').config();
 
 // Middleware setup
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+const cors = require('cors');
 app.use(cors({
     origin: '*',
     credentials: true
 }));
-
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'Content-Type', 'Authorization');
+    next();
+})
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // setting up router and routes
 const top250Movies_Router = require('./routes/top250Movies_Router');
 const top250Series_Router = require('./routes/top250Series_Router');
