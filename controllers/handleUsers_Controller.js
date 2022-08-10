@@ -16,7 +16,6 @@ const storeUserDetailsOrCreateUser = (req, res) => {
                 photoURL: user.photoURL,
                 emailVerified: user.emailVerified,
                 isAnonymous: user.isAnonymous,
-                mylist: user.mylist
             });
             newUser.save()
                 .then(newUser => res.status(201).json({ newUser }))
