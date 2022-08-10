@@ -31,7 +31,11 @@ const userSchema = new mongoose.Schema({
     isAnonymous: {
         type: Boolean,
     },
-    mylist: [movieSchema]
+    // my list default value empty list
+    mylist: {
+        type: [movieSchema],
+        default: []
+    }
 })
 
 const User = mongoose.model('User', userSchema);
