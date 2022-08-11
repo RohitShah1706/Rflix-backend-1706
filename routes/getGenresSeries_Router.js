@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const { getGenreSeries } = require('../controllers/getGenresSeries_Controller');
+const { getGenreSeries,getGenreSeriesFromTmdb } = require('../controllers/getGenresSeries_Controller');
 
 router.route("/:genre")
-    .get(getGenreSeries);
+    .get(getGenreSeriesFromTmdb);
 router.route("/:genre/:start/:end")
-    .get(getGenreSeries);
+    .get(getGenreSeriesFromTmdb);
 router.route("/:genre/:end")
-    .get(getGenreSeries);
+    .get(getGenreSeriesFromTmdb);
 
 module.exports = router;

@@ -22,4 +22,18 @@ const getinTheatres = (req, res) => {
             console.log(err);
         })
 }
-module.exports = { getinTheatres }
+const getinTheatresFromTmdb = (req, res) => {
+    var url = `https://api.themoviedb.org/3/movie/now_playing?api_key=c58333d0c4ab6f93e254d8d34d142f68&language=en-US&page=1`
+    const start = parseInt(req.params.start) || 0;
+    const end = parseInt(req.params.end) || 250;
+    axios.get(url)
+        .then(response => {
+            res.status(200)
+            res.send(response.data.results.slice(start, end));
+            return
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+module.exports = { getinTheatres, getinTheatresFromTmdb }

@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { getGenreMovies } = require('../controllers/getGenresMovie_Controller');
+const { getGenreMovies,getGenreMoviesFromTmdb } = require('../controllers/getGenresMovie_Controller');
 
 router.route("/:genre")
-    .get(getGenreMovies);
+    .get(getGenreMoviesFromTmdb);
 router.route("/:genre/:start/:end")
-    .get(getGenreMovies);
+    .get(getGenreMoviesFromTmdb);
 router.route("/:genre/:end")
-    .get(getGenreMovies);
+    .get(getGenreMoviesFromTmdb);
 
 module.exports = router;

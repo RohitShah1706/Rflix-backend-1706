@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 // import controller
-const { getTopSeries } = require('../controllers/top250Series_Controller');
+const { getTopSeries,getTopSeriesFromTmdb } = require('../controllers/top250Series_Controller');
 
 // Get all Series 
 router.route("/")
-    .get(getTopSeries)
+    .get(getTopSeriesFromTmdb)
 router.route("/:start&:end")
-    .get(getTopSeries);
+    .get(getTopSeriesFromTmdb);
 router.route("/:end")
-    .get(getTopSeries);
+    .get(getTopSeriesFromTmdb);
 
 module.exports = router;
