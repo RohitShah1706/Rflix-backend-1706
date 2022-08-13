@@ -7,6 +7,8 @@ DONE ===>
 6) INTEGRATE YOUTUBE TRAILER api WITH FRONTEND TO RENDER YOUTUBE TRAILER
 7) MAKE SEARCH FUNCTIONALITY git
 8) MAKE API FOR GENRES
+9) DAILY API FOR VIDEO CHAT = required to set the bearer token for the api - (What are bearer tokens = https://www.youtube.com/watch?v=6BPEQU53HgA ) (How to set bearer token in axios = https://www.youtube.com/watch?v=-u04JD5Eo-c)
+10) IMPLEMENT MODEL FOR USERS FAVOURITE MOVIES & SERIES - WHEN USER LOGS IN THE FRONTEND SEND REQUEST TO EITHER FIND OR CREATE USER
 
 ISSUES ===>
 1) ECONNRESET = The TMDB api - I guess is banned in India - so the backend sends a first request to the API and then the connection is closed off.
@@ -19,7 +21,7 @@ For now I am allowing all origins to access the backend so the cors orginis head
 Check server.js file for the cors origin header.
 
 PENDING ===>
-IMPLEMENT MODEL FOR USERS FAVOURITE MOVIES & SERIES - WHEN USER LOGS IN THE FRONTEND SEND REQUEST TO EITHER FIND OR CREATE USER
+REMOVE ROOMS THAT ARE NOT IN USE FROM DAILY API
 BUILD AND INTEGRATE ADMIN DASHBOARD ON FRONTEND WITH BACKEND 
 
 

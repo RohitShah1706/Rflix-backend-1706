@@ -26,6 +26,7 @@ const youtubeTrailer_Router = require('./routes/youtubeTrailer_Router');
 const getGenresMovie_Router = require('./routes/getGenresMovie_Router');
 const getGenresSeries_Router = require('./routes/getGenresSeries_Router');
 const handleUsers_Router = require('./routes/handleUsers_Router');
+const meetingRoom_Router = require('./routes/meetingRoom_Router');
 app.use("/api/top250movies", top250Movies_Router)
 app.use("/api/top250series", top250Series_Router)
 app.use("/api/inTheatres", inTheatres_Router)
@@ -33,6 +34,7 @@ app.use("/api/trailer", youtubeTrailer_Router)
 app.use("/api/genres/movies", getGenresMovie_Router)
 app.use("/api/genres/series", getGenresSeries_Router)
 app.use("/api/users", handleUsers_Router)
+app.use("/api/meetingroom", meetingRoom_Router)
 
 
 app.get("/", (req, res) => {
