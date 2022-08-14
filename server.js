@@ -40,7 +40,6 @@ app.use("/api/meetingroom", meetingRoom_Router)
 app.get("/", (req, res) => {
     res.send("hello world");
 })
-
 const startServer = () => {
     const PORT = process.env.PORT || 5000;
     connectDB();
