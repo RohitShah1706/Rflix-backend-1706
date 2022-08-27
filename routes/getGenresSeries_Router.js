@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getGenreSeries,getGenreSeriesFromTmdb } = require('../controllers/getGenresSeries_Controller');
+const { getGenreSeriesFromTmdb } = require('../controllers/getGenresSeries_Controller');
 
 router.route("/:genre")
     .get(getGenreSeriesFromTmdb);

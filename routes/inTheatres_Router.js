@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // import controller
-const { getinTheatres, getinTheatresFromTmdb } = require('../controllers/inTheatres_Controller');
+const { getinTheatresFromTmdb } = require('../controllers/inTheatres_Controller');
 
 // Get all inTheatres 
 router.route("/")

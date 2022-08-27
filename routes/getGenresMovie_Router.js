@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getGenreMovies,getGenreMoviesFromTmdb } = require('../controllers/getGenresMovie_Controller');
+const { getGenreMoviesFromTmdb } = require('../controllers/getGenresMovie_Controller');
 
 router.route("/:genre")
     .get(getGenreMoviesFromTmdb);
