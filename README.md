@@ -3,7 +3,7 @@
 This app is REST based API that allows you to fetch data from tmdb and other api's - 
 this is the backend for RFLIX-FRONTEND-1706
 
-The backend is hosted on - https://rflix-backend-1706.herokuapp.com/  
+The backend is hosted on - https://rflix-backend-1706.onrender.com/  
 The frontend is hosted on - https://rflix-frontend-1706.netlify.app/  
 Frontend repo link - https://github.com/RohitShah1706/Rflix-frontend-1706
 
@@ -25,7 +25,7 @@ To run this project, you will need to add the following environment variables to
 
 
 ## API Reference
-#### BASE_URL = localhost:5000 or rflix-backend-1706.herokuapp.com
+#### BASE_URL = localhost:5000 or https://rflix-backend-1706.onrender.com
 #### Get top movies 
 
 ```http
