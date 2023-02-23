@@ -1,8 +1,11 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
-const { connectDB } = require('./db/connectDB');
+const { connectMongo } = require('./db/connectMongo');
+const { redisClient } = require('./db/connectRedis');
+const Redis = require("redis");
 require('dotenv').config();
+
+const app = express();
 
 // Middleware setup
 const cors = require('cors');
@@ -40,9 +43,11 @@ app.use("/api/meetingroom", meetingRoom_Router)
 app.get("/", (req, res) => {
     res.send("hello world");
 })
-const startServer = () => {
+const startServer = async() => {
+    connectMongo();
+    await redisClient.connect();
+    console.log("Redis connected");
     const PORT = process.env.PORT || 5000;
-    connectDB();
     app.listen(PORT, () => {
         console.log(`Server started on port ${PORT}`);
     })

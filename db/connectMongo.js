@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectDB = () => {
+const connectMongo = () => {
     // connect to mongodb atlas
     mongoose.connect(process.env.MONGO_URI, (
         useNewUrlParser = true,
@@ -14,4 +14,4 @@ const connectDB = () => {
             console.log(err);
         })
 }
-module.exports = { connectDB };
+module.exports = { connectMongo };
